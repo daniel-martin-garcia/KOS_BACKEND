@@ -4,12 +4,15 @@ const exphbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const cors=require('cors');
 
 // To support URL-encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // To parse cookies from the HTTP Request
 router.use(cookieParser());
+
+router.use(cors({origin:true,credentials: true}));
 
 router.use((req, res, next) => {
   // Get auth token from the cookies
