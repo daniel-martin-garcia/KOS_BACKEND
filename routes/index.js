@@ -90,7 +90,8 @@ router.post('/signin', (req, res) => {
 
 /* POST login form. */
 router.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  console.log(req.body)
+  const { email, password } = req.body.user;
   const hashedPassword = getHashedPassword(password);
 
   const user = users.find(u => {
