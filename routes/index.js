@@ -6,12 +6,12 @@ const bodyParser = require('body-parser');
 const crypto = require('crypto');
 
 // To support URL-encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.urlencoded({ extended: true }));
 
 // To parse cookies from the HTTP Request
-app.use(cookieParser());
+router.use(cookieParser());
 
-app.use((req, res, next) => {
+router.use((req, res, next) => {
   // Get auth token from the cookies
   const authToken = req.cookies['AuthToken'];
 
@@ -33,7 +33,16 @@ const authTokens = {};
 const generateAuthToken = () => {
   return crypto.randomBytes(30).toString('hex');
 }
-
+const users = [
+  // This user is added to the array to avoid creating a new user on each restart
+  {
+    firstName: 'Kos',
+    lastName: 'Advice',
+    email: 'kos@kosadvice.es',
+    // This is the SHA256 hash for value of `password`
+    password: 'YNac2h83JtQBHZUmay9eXgW8TNucRPXCGjX/MWb6zD8='
+  }
+];
 
 
 /* GET home page. */
@@ -44,7 +53,7 @@ router.get('/', function(req, res, next) {
 
 
 /* GET login page. */
-app.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
   res.render('login');
 });
 
@@ -76,7 +85,7 @@ router.post('/login', (req, res) => {
   }
 });
 
-app.get('/protected', (req, res) => {
+router.get('/protected', (req, res) => {
   if (req.user) {
     res.render('protected');
   } else {
@@ -85,6 +94,13 @@ app.get('/protected', (req, res) => {
       messageClass: 'alert-danger'
     });
   }
+});
+
+
+
+router.get('/test', (req, res) => {
+  const hashedPassword = getHashedPassword("kos");
+  console.log(hashedPassword);
 });
 
 module.exports = router;
