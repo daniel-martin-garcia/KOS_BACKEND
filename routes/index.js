@@ -61,7 +61,7 @@ router.get('/login', (req, res) => {
 });
 
 /* POST login form. */
-router.post('/login', (req, res) => {
+router.post('/signin', (req, res) => {
   const { email, password } = req.body;
   const hashedPassword = getHashedPassword(password);
 
@@ -84,6 +84,36 @@ router.post('/login', (req, res) => {
     res.render('login', {
       message: 'Invalid username or password',
       messageClass: 'alert-danger'
+    });
+  }
+});
+
+/* POST login form. */
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  const hashedPassword = getHashedPassword(password);
+
+  const user = users.find(u => {
+    return u.email === email && hashedPassword === u.password
+  });
+
+  if (user) {
+    const authToken = generateAuthToken();
+
+    // Store authentication token
+    authTokens[authToken] = user;
+
+    // Setting the auth token in cookies
+    res.cookie('AuthToken', authToken);
+
+    // Redirect user to the protected page
+    res.json({
+      logged_in: true,
+      user: user
+    });
+  } else {
+    res.json({
+      logged_in: false
     });
   }
 });
