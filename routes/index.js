@@ -4,7 +4,8 @@ const exphbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
-const cors=require('cors');
+const cors = require('cors');
+const path = require('path');
 
 // To support URL-encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -135,6 +136,42 @@ router.get('/protected', (req, res) => {
 router.get('/test', (req, res) => {
   const hashedPassword = getHashedPassword("kos");
   console.log(hashedPassword);
+});
+
+router.get('/downloadFile', (req, res, next) => {
+  console.log("GET download file.");
+  const excelFilePath = path.join(__dirname, '../files/test.xlsx');
+  //res.attachment(excelFilePath);
+  res.download(excelFilePath);
+  /*
+  res.sendFile(excelFilePath, (err) => {
+    if (err) console.log(err);
+  });
+   */
+});
+
+router.post('/uploadFile', function(req, res) {
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+  let excelFile = req.files.excelFile;
+
+  excelFile.mv('files/test.xlsx', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
+
+router.post('/uploadFilev2', function(req, res) {
+
+  req.pipe(req.busboy);
+  req.busboy.on('file', function (fieldname, file, filename) {
+    console.log("Uploading: " + filename);
+  });
 });
 
 module.exports = router;
