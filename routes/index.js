@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const crypto = require('crypto');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 
 // To support URL-encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -24,7 +25,6 @@ router.use((req, res, next) => {
 
   next();
 });
-
 
 //AUX
 const getHashedPassword = (password) => {
@@ -48,20 +48,14 @@ const users = [
   }
 ];
 
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
-
-/* GET login page. */
 router.get('/login', (req, res) => {
   res.render('login');
 });
 
-/* POST login form. */
 router.post('/signin', (req, res) => {
   const { email, password } = req.body;
   const hashedPassword = getHashedPassword(password);
@@ -89,7 +83,6 @@ router.post('/signin', (req, res) => {
   }
 });
 
-/* POST login form. */
 router.post('/login', (req, res) => {
   console.log(req.body)
   const { email, password } = req.body.user;
@@ -131,8 +124,6 @@ router.get('/protected', (req, res) => {
   }
 });
 
-
-
 router.get('/test', (req, res) => {
   const hashedPassword = getHashedPassword("kos");
   console.log(hashedPassword);
@@ -140,14 +131,23 @@ router.get('/test', (req, res) => {
 
 router.get('/downloadFile', (req, res, next) => {
   console.log("GET download file.");
-  const excelFilePath = path.join(__dirname, '../files/test.xlsx');
+  const excelFilePath = path.join(__dirname, '../files/CHARGING_INFO.xlsx');
   //res.attachment(excelFilePath);
   res.download(excelFilePath);
-  /*
-  res.sendFile(excelFilePath, (err) => {
-    if (err) console.log(err);
+});
+
+router.get('/getFile', (req, res) => {
+  const excelFilePath = path.join(__dirname, '../files/CHARGING_INFO.xlsx');
+  fs.readFile(excelFilePath, function(err, data){
+    if(err){
+      res.statusCode = 500;
+      res.end(`Error getting the file: ${err}.`);
+    } else {
+      res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+      //res.setHeader("Content-Type", "application/vnd.ms-excel");
+      res.end(data);
+    }
   });
-   */
 });
 
 router.post('/uploadFile', function(req, res) {
@@ -155,10 +155,10 @@ router.post('/uploadFile', function(req, res) {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
-
+  console.log(req.files);
   let excelFile = req.files.excelFile;
 
-  excelFile.mv('files/test.xlsx', function (err) {
+  excelFile.mv('files/CHARGING_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
@@ -166,12 +166,5 @@ router.post('/uploadFile', function(req, res) {
   });
 });
 
-router.post('/uploadFilev2', function(req, res) {
-
-  req.pipe(req.busboy);
-  req.busboy.on('file', function (fieldname, file, filename) {
-    console.log("Uploading: " + filename);
-  });
-});
-
 module.exports = router;
+
