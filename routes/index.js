@@ -138,6 +138,7 @@ router.get('/downloadFile', (req, res, next) => {
 
 router.get('/getFile', (req, res) => {
   const excelFilePath = path.join(__dirname, '../files/CHARGING_INFO.xlsx');
+  //const excelFilePath = path.join(__dirname, '../../../......./CHARGING_INFO.xlsx');
   fs.readFile(excelFilePath, function(err, data){
     if(err){
       res.statusCode = 500;
@@ -159,6 +160,7 @@ router.post('/uploadFile', function(req, res) {
   let excelFile = req.files.excelFile;
 
   excelFile.mv('files/CHARGING_INFO.xlsx', function (err) {
+  //excelFile.mv('../../../......../CHARGING_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
