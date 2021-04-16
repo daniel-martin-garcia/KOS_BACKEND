@@ -136,8 +136,9 @@ router.get('/downloadFile', (req, res, next) => {
   res.download(excelFilePath);
 });
 
-router.get('/getFile', (req, res) => {
+router.get('/get/oc', (req, res) => {
   const excelFilePath = path.join(__dirname, '../files/CHARGING_INFO.xlsx');
+  //TODO: Uncomment if deployed
   //const excelFilePath = path.join(__dirname, '../../../......./CHARGING_INFO.xlsx');
   fs.readFile(excelFilePath, function(err, data){
     if(err){
@@ -151,7 +152,7 @@ router.get('/getFile', (req, res) => {
   });
 });
 
-router.post('/uploadFile', function(req, res) {
+router.post('/upload/oc', function(req, res) {
 
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
@@ -160,7 +161,80 @@ router.post('/uploadFile', function(req, res) {
   let excelFile = req.files.excelFile;
 
   excelFile.mv('files/CHARGING_INFO.xlsx', function (err) {
+  //TODO: Uncomment if deployed
   //excelFile.mv('../../../......../CHARGING_INFO.xlsx', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
+
+//GET OC
+router.get('/get/oc', (req, res) => {
+  const excelFilePath = path.join(__dirname, '../files/CHARGING_INFO.xlsx');
+  //TODO: Uncomment if deployed
+  //const excelFilePath = path.join(__dirname, '../../../......./CHARGING_INFO.xlsx');
+  fs.readFile(excelFilePath, function(err, data){
+    if(err){
+      res.statusCode = 500;
+      res.end(`Error getting the file: ${err}.`);
+    } else {
+      res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+      //res.setHeader("Content-Type", "application/vnd.ms-excel");
+      res.end(data);
+    }
+  });
+});
+
+//POST OC
+router.post('/upload/oc', function(req, res) {
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  console.log(req.files);
+  let excelFile = req.files.excelFile;
+
+  excelFile.mv('files/CHARGING_INFO.xlsx', function (err) {
+    //TODO: Uncomment if deployed
+    //excelFile.mv('../../../......../CHARGING_INFO.xlsx', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
+
+//GET INO
+router.get('/get/ino', (req, res) => {
+  const excelFilePath = path.join(__dirname, '../files/INO_INFO.xlsx');
+  //TODO: Uncomment if deployed
+  //const excelFilePath = path.join(__dirname, '../../../......./INO_INFO.xlsx');
+  fs.readFile(excelFilePath, function(err, data){
+    if(err){
+      res.statusCode = 500;
+      res.end(`Error getting the file: ${err}.`);
+    } else {
+      res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+      //res.setHeader("Content-Type", "application/vnd.ms-excel");
+      res.end(data);
+    }
+  });
+});
+
+//POST INO
+router.post('/upload/ino', function(req, res) {
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  console.log(req.files);
+  let excelFile = req.files.excelFile;
+
+  excelFile.mv('files/INO_INFO.xlsx', function (err) {
+    //TODO: Uncomment if deployed
+    //excelFile.mv('../../../......../CHARGING_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 

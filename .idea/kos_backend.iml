@@ -9,6 +9,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="EXCEL_FRONT" />
-    <orderEntry type="module" module-name="kos_form" />
   </component>
 </module>
