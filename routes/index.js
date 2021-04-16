@@ -153,7 +153,6 @@ router.get('/get/oc', (req, res) => {
 });
 
 router.post('/upload/oc', function(req, res) {
-
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
@@ -189,7 +188,6 @@ router.get('/get/oc', (req, res) => {
 
 //POST OC
 router.post('/upload/oc', function(req, res) {
-
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
@@ -225,7 +223,6 @@ router.get('/get/ino', (req, res) => {
 
 //POST INO
 router.post('/upload/ino', function(req, res) {
-
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
@@ -234,7 +231,77 @@ router.post('/upload/ino', function(req, res) {
 
   excelFile.mv('files/INO_INFO.xlsx', function (err) {
     //TODO: Uncomment if deployed
-    //excelFile.mv('../../../......../CHARGING_INFO.xlsx', function (err) {
+    //excelFile.mv('../../../......../INO_INFO.xlsx', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
+
+//GET ISP BILLING PERIOD MGM
+router.get('/get/isp-billing-period', (req, res) => {
+  const excelFilePath = path.join(__dirname, '../files/ISP_BILLING_PERIOD_MGM.xlsx');
+  //TODO: Uncomment if deployed
+  //const excelFilePath = path.join(__dirname, '../../../......./ISP_BILLING_PERIOD_MGM.xlsx');
+  fs.readFile(excelFilePath, function(err, data){
+    if(err){
+      res.statusCode = 500;
+      res.end(`Error getting the file: ${err}.`);
+    } else {
+      res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+      //res.setHeader("Content-Type", "application/vnd.ms-excel");
+      res.end(data);
+    }
+  });
+});
+
+//POST ISP BILLING PERIOD MGM
+router.post('/upload/isp-billing-period', function(req, res) {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  console.log(req.files);
+  let excelFile = req.files.excelFile;
+
+  excelFile.mv('files/ISP_BILLING_PERIOD_MGM.xlsx', function (err) {
+    //TODO: Uncomment if deployed
+    //excelFile.mv('../../../......../ISP_BILLING_PERIOD_MGM.xlsx', function (err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
+
+//GET ISP
+router.get('/get/isp', (req, res) => {
+  const excelFilePath = path.join(__dirname, '../files/ISP_INFO.xlsx');
+  //TODO: Uncomment if deployed
+  //const excelFilePath = path.join(__dirname, '../../../......./ISP_INFO.xlsx');
+  fs.readFile(excelFilePath, function(err, data){
+    if(err){
+      res.statusCode = 500;
+      res.end(`Error getting the file: ${err}.`);
+    } else {
+      res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+      //res.setHeader("Content-Type", "application/vnd.ms-excel");
+      res.end(data);
+    }
+  });
+});
+
+//POST ISP
+router.post('/upload/isp', function(req, res) {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  console.log(req.files);
+  let excelFile = req.files.excelFile;
+
+  excelFile.mv('files/ISP_INFO.xlsx', function (err) {
+    //TODO: Uncomment if deployed
+    //excelFile.mv('../../../......../ISP_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ec5bc948-5e18-4879-9b02-d87fde060e53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo-pre.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/js/excel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/js/excel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kos_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kos_backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino-pre.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino-pre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial-pre.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial-pre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/CHARGING_INFO.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/files/CHARGING_INFO.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/test.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../EXCEL_FRONT" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -39,7 +38,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1cj8a9g9YHGoODCdRxHJCq2PTs0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -131,7 +132,7 @@
       <workItem from="1618251947304" duration="1102000" />
       <workItem from="1618292658900" duration="141000" />
       <workItem from="1618391273532" duration="9201000" />
-      <workItem from="1618562496685" duration="1401000" />
+      <workItem from="1618562496685" duration="10496000" />
     </task>
     <servers />
   </component>
