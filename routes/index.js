@@ -161,7 +161,7 @@ router.post('/upload/oc', function(req, res) {
 
   //excelFile.mv('files/CHARGING_INFO.xlsx', function (err) {
   //TODO: Uncomment if deployed
-  excelFile.mv('../../references/CHARGING_INFO.xlsx', function (err) {
+  excelFile.mv('../references/CHARGING_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
@@ -196,7 +196,7 @@ router.post('/upload/ino', function(req, res) {
 
   //excelFile.mv('files/INO_INFO.xlsx', function (err) {
   //TODO: Uncomment if deployed
-  excelFile.mv('../../references/INO_INFO.xlsx', function (err) {
+  excelFile.mv('../references/INO_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
@@ -231,7 +231,7 @@ router.post('/upload/isp-billing-period', function(req, res) {
 
   //excelFile.mv('files/ISP_BILLING_PERIOD_MGM.xlsx', function (err) {
   //TODO: Uncomment if deployed
-  excelFile.mv('../../references/ISP_BILLING_PERIOD_MGM.xlsx', function (err) {
+  excelFile.mv('../references/ISP_BILLING_PERIOD_MGM.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
@@ -266,7 +266,7 @@ router.post('/upload/isp', function(req, res) {
 
   //excelFile.mv('files/ISP_INFO.xlsx', function (err) {
   //TODO: Uncomment if deployed
-  excelFile.mv('../../references/ISP_INFO.xlsx', function (err) {
+  excelFile.mv('../references/ISP_INFO.xlsx', function (err) {
     if (err)
       return res.status(500).send(err);
 
