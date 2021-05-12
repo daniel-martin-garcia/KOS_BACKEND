@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec5bc948-5e18-4879-9b02-d87fde060e53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino-pre.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino-pre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/ino.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial-pre.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial-pre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/../EXCEL_FRONT/adamo/oferta-comercial.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../EXCEL_FRONT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -132,7 +129,9 @@
       <workItem from="1618251947304" duration="1102000" />
       <workItem from="1618292658900" duration="141000" />
       <workItem from="1618391273532" duration="9201000" />
-      <workItem from="1618562496685" duration="10496000" />
+      <workItem from="1618562496685" duration="13866000" />
+      <workItem from="1619540936883" duration="1322000" />
+      <workItem from="1620814037598" duration="3615000" />
     </task>
     <servers />
   </component>

@@ -15,11 +15,10 @@
     "express": "~4.16.1",
     "express-fileupload": "^1.2.1",
     "express-handlebars": "^4.0.4",
-    "hbs": "^4.1.1",
+    "hbs": "^4.1.2",
     "http-errors": "^1.6.3",
     "morgan": "~1.9.1",
     "path": "^0.12.7",
-    "pm2": "^4.5.1",
     "pug": "3.0.1"
   }
 }
